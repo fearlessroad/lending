@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 	#container{
+			margin: 0 auto;
+			width:900px;
+			overflow:hidden;
+		}
+		label, input{
+			display:block;
+			width:150px;
+			float:left;
+			margin-bottom:10px;
+		}
+		label{
+			text-align:right;
+			padding-right:20px;
+		}
+		br{
+			clear:left;
+		}
+		#city{
+			width:100px;
+			margin-right:5px;
+		}
+		fieldset{
+			width:350px;
+			border-color: grey;
+			display:inline-block;
+			vertical-align:top;
+
+		}
+		button{
+			float:right;
+			margin-right:25px;
+			background-color:white;
+		}
+		button:hover{
+			background-color:grey;
+		}
+		.errors{
+			color:red;
+			font-size:80%;
+			margin-left:10%;
+		}
+		table{
+			vertical-align: top;
+			border-collapse: collapse;
+			border:1px solid black;
+			font-size:12px;
+			font-family:sans-serif;
+			margin:10px;
+		}
+		td, th {
+			border:1px solid black;
+			padding:5px;
+		}
+		tr:nth-child(odd){
+			background-color:#cccccc;
+		}
+		th{
+			background-color:#999999;
+		}
+		button{
+			background-color:white;
+		}
+		form{
+			display:inline;
+		}

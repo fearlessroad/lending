@@ -1,0 +1,18 @@
+<div id="container">
+		<h2>Welcome to Online Lending!</h2>
+		<FIELDSET class="layout">
+			<legend>Login</legend>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |e| %>
+					<span class = "errors"><%= e %></span>
+				<% end %>
+			<% end %>
+			<form action="/sessions/create" method="post">
+			<input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+				<label>Email</label><input type="email" name="email"><br>
+				<label>Password</label><input type="password" name="password"><br>
+				<a href = "/online_lending/register">Click here to register</a>
+				<button>Login</button>
+			</form>
+		</FIELDSET>
+</div>

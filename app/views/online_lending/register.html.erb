@@ -1,0 +1,38 @@
+<div id="container">
+		<h2>Welcome to Online Lending!</h2>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |e| %>
+					<span class = "errors"><%= e %></span>
+				<% end %>
+			<% end %>
+		<FIELDSET class="layout">
+			<legend>Lender</legend>
+			<form action="/lenders/create" method="post">
+			<input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+				<label>First Name</label><input type="text" name="lender[first_name]"><br>
+				<label>Last Name</label><input type="text" name="lender[last_name]"><br>
+				<label>Email</label><input type="email" name="lender[email]"><br>
+				<label>Money</label><input type="number" min="0" step="1" name="lender[money]"><br>
+				<label>Password</label><input type="password" name="lender[password]"><br>
+				<label>Confirm Password</label><input type="password" name="lender[password_confirmation]"><br>
+				<a href = "/online_lending/login">Already a member?</a>
+				<button>Register</button>
+			</form>
+		</FIELDSET>
+		<FIELDSET class="layout">
+			<legend>Borrower</legend>
+			<form action="/borrowers/create" method="post">
+			<input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+				<label>First Name</label><input type="text" name="borrower[first_name]"><br>
+				<label>Last Name</label><input type="text" name="borrower[last_name]"><br>
+				<label>Email</label><input type="email" name="borrower[email]"><br>
+				<label>Need Money For</label><input type="text" name="borrower[purpose]"><br>
+				<label>Description</label><textarea name="borrower[description]"></textarea><br>
+				<label>Amount Needed</label><input type="number" min="0" step="1" name="borrower[money]"><br>
+				<label>Password</label><input type="password" name="borrower[password]"><br>
+				<label>Confirm Password</label><input type="password" name="borrower[password_confirmation]"><br>
+				<a href = "/online_lending/login">Already a member?</a>
+				<button>Register</button>
+			</form>
+		</FIELDSET>
+	</div>

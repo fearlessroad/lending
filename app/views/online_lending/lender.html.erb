@@ -1,0 +1,66 @@
+<div id="container">
+	<p>Name: <%= @lender.first_name %> <%= @lender.last_name %></p>
+	<p>Account Balance: $ <%= @lender.money %></p>
+	<h3>List of people in need of help</h3>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |e| %>
+					<span class = "errors"><%= e %></span>
+				<% end %>
+			<% end %>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Need Money For</th>
+				<th>Reason for Loan</th>
+				<th>Amount Needed</th>
+				<th>Amount Raised</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @needhelp.each do |help| %>
+			<tr>
+				<td><%= help.first_name%><%= help.last_name%></td>
+				<td><%= help.purpose %></td>
+				<td><%= help.description %></td>
+				<td>$ <%= help.money %></td>
+				<td>$ <%= help.raised %></td>
+				<td>
+					<form action="/histories/create/<%= help.id %>" method="post">
+						<input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+						<input id="lend" type ="number" min="0" step="1" name="amount">
+						<button>Lend</button>
+					</form>
+				</td>
+			</tr>
+			<%end %>
+		</tbody>
+	</table>
+
+	<h3>List of people you lent money to</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Need Money For</th>
+				<th>Reason for Loan</th>
+				<th>Amount Needed</th>
+				<th>Amount Raised</th>
+				<th>$ Amount lent</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @lendhistory.each do |lend| %>
+			<tr>
+				<td><%= lend.first_name%> <%= lend.last_name %></td>
+				<td><%= lend.purpose %></td>
+				<td><%= lend.description %></td>
+				<td>$ <%= lend.money %></td>
+				<td>$ <%= lend.raised %></td>
+				<td>$ <%= lend.amount %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>

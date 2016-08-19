@@ -1,0 +1,24 @@
+<div id="container">
+	<p>Name: <%= @borrower.first_name %> <%= @borrower.last_name %></p>
+	<p>Amount Needed: $ <%= @borrower.money %></p>
+	<p>Amount Raised: $ <%= @borrower.raised %></p>
+	<h3>List of people who have lent you money</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Amount Lent</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @history.each do |lender| %>
+			<tr>
+				<td><%= lender.first_name %> <%= lender.last_name%></td>
+				<td><%= lender.email%></td>
+				<td>$ <%= lender.amount%></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div> 
